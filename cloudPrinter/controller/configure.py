@@ -1,0 +1,26 @@
+PAGE_BASE = 'cloudPrinter'
+NAME_BASE = 'userRequest'
+
+ACCP = 'isAccepted'
+CHOSED_PRINTER = 'chosed-printer'
+CONFIGURE_PAGE = '%s/configure.dhtml' % PAGE_BASE
+CONF_URL = '%s:configure' % NAME_BASE
+DEFAULT_NUM = 'defaultNum'
+EMAIL = 'email'
+FILE_NUM = 'FIleNum'
+HOME_PAGE = '%s/index.dhtml' % PAGE_BASE
+MD5 = 'md5'
+NAME = 'name'
+NUM_CONFIG_NAME = 'quantity'
+OLD_POST_FILE = '_old_post_files'
+PATH = 'fileSavedPath'
+PRINTER_CODE = 'printer_code'
+PRINTER_STATE = 'printerStateList'
+PRIORI = 'priority'
+PRINT_FILE_LIST = 'printFileList'
+SIZE = 'size'
+SUBMIT_URL = '%s:submitJob' % NAME_BASE
+SUCCEED_PAGE = '%s/succeed.dhtml' % PAGE_BASE
+TYPE = 'type'
+UPLOAD_FILES = 'upload-files'
+USER = 'user'

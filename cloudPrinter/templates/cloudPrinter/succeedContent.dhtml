@@ -1,0 +1,14 @@
+{% load staticfiles%}
+<script src = "{% static 'cloudPrinter/js/mailHash.js'%}"></script>
+<header id = "index" class="intro">
+  <div class="intro-body" class = 'background-mental'>
+    <div class="container col-md-8 col-md-offset-2 ">
+      <div class="row">
+        <h1 class = 'margin-base-vertical'>已经加入打印队列</h1>
+        <p>进入邮箱获得打印的最新通知:<a href = "#" targe = '_blank' class = 'mail'>{{email}}</p>
+    </div>
+  </div>
+</div>
+</header>
+
+

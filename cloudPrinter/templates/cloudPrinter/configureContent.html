@@ -1,0 +1,104 @@
+{% load staticfiles%}
+<style>
+.title{
+  background-color:#3AD5A0;
+}
+h3{
+  color:#fffef9;
+  font-size:10px;
+}
+
+.error{
+  color:#3AD5A0;
+}
+</style>
+<header id = 'configure' class = 'configure'>
+  <div class="container col-md-8 col-md-offset-2 ">
+    <table class="table ">
+      <tbody>
+      <tr class = 'title'>
+        <td><h3>序号</h3></td>
+        <td><h3>名称</h3></td>
+        <td><h3>类型</h3></td>
+        <td><h3>是否可印</h3></td>
+        <td><h3>打印份数</h3></td>
+      </tr>
+      {% for file in printFileList %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{file.name}}</td>
+        <td>{{file.type}}</td>
+        {% if file.isAccepted %}
+        <td>是</td>
+        {% else %}
+        <td>否</td>
+        {% endif %}
+        <td>
+          <span onclick="changeNum({{forloop.counter}},-1,'{{file.isAccepted}}')"><img class = 'configureNumButton' src="{% static 'cloudPrinter/img/plus.png'%}" /></span>
+          <input type="text" value= {{ file.defaultNum }} onmouseover="this.focus()" onfocus="this.select()" id='quantity{{forloop.counter}}' name='quantity{{forloop.counter}}'  />
+          <span onclick="changeNum({{forloop.counter}},1,'{{file.isAccepted}}')"><img class = 'configureNumButton' src="{% static 'cloudPrinter/img/minus.png'%}"  /></span> </td>
+      </tr>
+      {% empty %}
+      <li>未检测到任何文件提交请求</li>
+      {% endfor %}
+
+      </tbody>
+    </table>
+    <span>请填写邮箱以获得最新的打印通知</span>
+    <input type = 'text' name = 'email' value = ''>
+
+  </div>
+</header>
+
+<script src="{% static "cloudPrinter/js/jquery.validate.js" %}"></script>
+<script>
+function changeNum(i,delta,isAccepted){
+  if(isAccepted == 'False'){
+    alert("该文件不能被打印") 
+  }else{
+    name = "quantity" + i;
+    var num = parseInt($("#"+name).val());
+    num += delta;
+    num %= 10;
+    if(num < 0){
+      alert('打印份数不能为负')
+        num = 1;
+    }
+    if($("#"+name).val()==""){
+      num = 0;
+    }
+    $("#"+name).val(num);
+  }
+}
+function dec(i,isAccepted){
+  alert(isAccepted)
+    name = "quantity" + i;
+  var num = parseInt($("#"+name).val());
+  num -= 1;
+  if(num < 0){
+    alert("don't be cute");
+  }else{
+    $("#"+name).val(num);
+  }
+}
+
+//validation 
+$(function() {
+    $("#config-form").validate( {
+rules: {
+email: {
+required: true,
+email: true
+}
+},
+messages: {
+email: {
+required: "邮箱不可为空",
+email: "邮箱格式不正确"
+}
+}
+});
+    })
+
+</script>
+</body>

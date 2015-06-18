@@ -1,0 +1,8 @@
+{% extends "cloudPrinter/base.dhtml" %}
+{% block title%}云打印{% endblock %}
+{% block nav_bar%}
+{% include 'cloudPrinter/nav_bar.dhtml' %}
+{% endblock %}
+{% block content%}
+{% include 'cloudPrinter/home.dhtml' %}
+{% endblock %}

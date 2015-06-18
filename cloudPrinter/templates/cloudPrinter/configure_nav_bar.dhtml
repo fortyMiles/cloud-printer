@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang = 'en'>
+<meta charset="utf-8">
+<link href="{% static "cloudPrinter/css/bootstrap.min.css" %}" rel="stylesheet">
+<link href="{% static "cloudPrinter/fonts/font-awesome-4.2.0/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand" href="#page-top">
+        <i class="fa fa-play-circle"></i>  <span class="light">Cloud</span> Printer
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+        <li class="hidden">
+        <a href="#page-top"></a>
+        </li>
+        <li>
+        <a  href="#about">简介</a>
+        </li>
+        <li>
+        <a href="#helpCenter">帮助</a>
+        </li>
+        <li>
+        <a href="#download">关于我们</a>
+        </li>
+        <li>
+        <a href="#contact" class = 'page-scroll'>联系我们</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+</html>

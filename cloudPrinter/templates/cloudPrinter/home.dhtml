@@ -1,0 +1,17 @@
+<header id = "index" class="intro">
+  <div class="intro-body" class = 'background-mental'>
+    <div class="container col-md-8 col-md-offset-2 ">
+      <div class="row">
+        <h1 class="margin-base-vertical">仙女座</h1><h3>&#945</h3>
+        <p>&nbsp</p>
+        <form class="col-md-8 col-md-offset-2" action="{% url 'userRequest:uploadFiles' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type = "file"id="input-1a" name = "upload-files" type="file" onChange="couldSubmit()" class="file" multiple="true" data-show-preview="false"> <br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+

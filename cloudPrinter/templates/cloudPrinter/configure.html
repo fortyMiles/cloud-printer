@@ -1,0 +1,13 @@
+{% extends "cloudPrinter/base.dhtml" %}
+{% block title%}云打印{% endblock %}
+{% block nav_bar%}
+{% include 'cloudPrinter/nav_bar.dhtml' %}
+{% endblock %}
+{% block content%}
+<form action="{% url 'userRequest:startPrinting' %}" method="post" id="config-form" enctype="multipart/form-data" name="config-form">
+  {% csrf_token%}
+  {% include 'cloudPrinter/configureContent.dhtml' %}
+  {% include 'cloudPrinter/printerState.dhtml' %}
+</form>
+{% include 'cloudPrinter/foot.html' %}
+{% endblock %}

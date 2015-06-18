@@ -1,0 +1,93 @@
+{% load staticfiles%}
+<style>
+.submit-input{
+  border:0;
+  padding:0;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="{% static 'printerStates/css/styles.css' %}" media="all" />
+<link rel="stylesheet" type="text/css" href="{% static 'printerStates/css/demo.css' %}" media="all" />
+</head>
+<div class="container printerContainer" >
+  <!-- start header here-->
+  <header>
+    <div id="fdw-pricing-table" style = 'margin-left:{{marginPx}}px'>
+      {% for printer in printerStateList %}
+        <div class = 'plan plan{{printer.color}}'> 
+        {% comment %}
+          the printer.color is an integer that could represent itself's color, given by the outside class.
+        {% endcomment %}
+          <div class = 'header'>{{printer.name}}</div>
+          <div class = 'price'>{{printer.price}}</div>
+          <div class = 'monthly'>per page</div>
+          <ul >
+            <li>机器地址<b>{{printer.location}}</b> </li>
+            <li>当前状态<b>{{printer.state}}</b> </li>
+            <li>排队作业数<b>{{printer.jobs}}</b> </li>
+            <li>平均速度 <b>{{printer.speed}}页/分钟</b> </li>
+            <li>综合评价<b>{{printer.star}}0</b> </li>      
+          </ul>
+          <input type = 'hidden' name = 'chosed-printer' value ='{{printer.code}}'></input>
+          <input type = 'hidden' name = 'if-chosed' value = 'false'>
+          <input class = "signup submit-input" type = 'submit' value = '开始打印'></input>
+        </div>
+      {% endfor %}
+      {% comment %}
+      <div class="plan plan1">
+        <div class="header">双子</div>
+        <div class="price">￥0.1</div>  
+        <div class="monthly">per page</div>      
+        <ul>
+          <li>机器地址<b>S319</b> </li>
+          <li>当前状态<b>正常工作</b> </li>
+          <li>排队作业数<b>1</b> </li>
+          <li>平均速度 <b>3页/分钟</b> </li>
+          <li>综合评价<b>6.0</b> </li>      
+        </ul>
+        <input type = 'hidden' name = 'chosed-printer' value = 'ox002' ></input>
+        <input class = "signup submit-input" type = 'submit' value = '开始打印'></input>
+      </div>
+      <div class="plan plan2 popular-plan">
+        <div class="header">御夫(推荐)</div>
+        <div class="price">￥0.01</div>
+        <div class="monthly">per PAGE</div>  
+        <ul>
+          <li><b>5GB</b> Disk Space</li>
+          <li><b>50GB</b> Monthly Bandwidth</li>
+          <li><b>10</b> Email Accounts</li>
+          <li><b>Unlimited</b> subdomains</li>      
+        </ul>
+        <a class="signup" href = "#"  onclick="alert('do submit')">Sign up</a>            
+      </div>
+      <div class="plan plan3">
+        <div class="header">射手</div>
+        <div class="price">￥0.5</div>
+        <div class="monthly">per PAGE</div>
+        <ul>
+          <li><b>3GB</b> Disk Space</li>
+          <li><b>25GB</b> Monthly Bandwidth</li>
+          <li><b>5</b> Email Accounts</li>
+          <li><b>Unlimited</b> subdomains</li>      
+        </ul>
+        <a class="signup" href="http://www.freshdesignweb.com">Sign up</a>        
+      </div>
+      <div class="plan plan4">
+        <div class="header">猎户</div>
+        <div class="price">￥0.15</div>
+        <div class="monthly">per PAGE</div>
+        <ul>
+          <li><b>1GB</b> Disk Space</li>
+          <li><b>10GB</b> Monthly Bandwidth</li>
+          <li><b>2</b> Email Accounts</li>
+          <li><b>Unlimited</b> subdomains</li>      
+        </ul>
+        <a class="signup" href="http://www.freshdesignweb.com">Sign up</a>        
+      </div>  
+    </div>
+    {% endcomment %}
+  </header><!-- end header -->
+
+</div>
+
+
+
